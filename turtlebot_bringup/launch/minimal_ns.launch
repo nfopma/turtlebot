@@ -18,10 +18,13 @@
     <arg name="3d_sensor" value="$(arg 3d_sensor)" />
     <arg name="namespace" value="$(arg namespace)" />  <!-- Added this for rrt_exploration -->
   </include>
-  <include file="$(find turtlebot_bringup)/launch/includes/mobile_base.launch.xml">
+
+  <include file="$(find turtlebot_bringup)/launch/includes/mobile_base_ns.launch.xml">
     <arg name="base" value="$(arg base)" />
     <arg name="serialport" value="$(arg serialport)" />
+    <arg name="namespace" value="$(arg namespace)" />
   </include>
+  
   <include unless="$(eval arg('battery') == 'None')" file="$(find turtlebot_bringup)/launch/includes/netbook.launch.xml">
     <arg name="battery" value="$(arg battery)" />
   </include>
